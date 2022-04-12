@@ -9,5 +9,7 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'content'];
-    protected $casts = ['created_at' => 'datetime:d/m/Y', 'updated_at' => 'datetime:d/m/Y'];
+    protected $casts = [
+        'created_at' => 'datetime:d/m/Y',
+        'updated_at' => 'datetime:d/m/Y'];
 }

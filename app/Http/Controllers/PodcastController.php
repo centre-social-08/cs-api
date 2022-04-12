@@ -14,7 +14,7 @@ class PodcastController extends Controller
      */
     public function index()
     {
-        return Podcast::All();
+        return Podcast::orderBy('created_at', 'desc')->get();
     }
 
     /**

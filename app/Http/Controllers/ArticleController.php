@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return Article::All();
+        return Article::orderBy('created_at', 'desc')->get();
     }
 
     /**

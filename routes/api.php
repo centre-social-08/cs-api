@@ -25,11 +25,13 @@ use App\Http\Controllers\AuthController;
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::apiResource('article', ArticleController::class)->only('store');
+    Route::apiResource('podcast', PodcastController::class)->only('store');
 });
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::apiResource('article', ArticleController::class);
-Route::apiResource('podcast', PodcastController::class);
+Route::apiResource('article', ArticleController::class)->except('store');
+Route::apiResource('podcast', PodcastController::class)->except('store');
 Route::post('/sendmail', [MailController::class, 'SendMail']);
